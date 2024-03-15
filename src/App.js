@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Footer from './components/Footer';
 import Lottery from './components/Lottery';
 import About from './components/About';
+import TaskManager from './components/TaskManager';
 
 function App() {
   return (
@@ -14,10 +15,11 @@ function App() {
         <Sidebar />
         <div className='content'>
           <Routes>
-            <Route path='/' exact Component={Home} />
-            <Route path='/calculator' Component={Calculator} />
-            <Route path='/lottery' Component={Lottery} />
-            <Route path='/about' Component={About} />
+            <Route path='/react-apps/' exact Component={Home} />
+            <Route path='/react-apps/calculator' Component={Calculator} />
+            <Route path='/react-apps/lottery' Component={Lottery} />
+            <Route path='/react-apps/task-manager' Component={TaskManager} />
+            <Route path='/react-apps/about' Component={About} />
           </Routes>
         </div>
         <Footer/>
