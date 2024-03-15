@@ -1,38 +1,372 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app {
+  display: grid;
+  grid-template-columns: minmax(151px, auto) 40fr;
+  grid-template-rows: 1fr auto;
   min-height: 100vh;
+}
+
+.sidebar-container {
+  display: flex;
+  grid-row: 1 / -1;
+  flex-direction: column;
+  width: 20vw;
+  min-width: fit-content;
+  max-width: 230px;
+
+  background-color: var(--dark-blue);
+}
+
+.sidebar-header {
+  padding-left: 10px;
+  background-image: linear-gradient(-135deg, #00b518aa, #001cb8aa);
+  color: var(--light-blue);
+}
+
+.sidebar-items {
   display: flex;
   flex-direction: column;
+  margin: 0 10px;
+  list-style: none;
+}
+
+.link {
+  padding: 3px 0;
+
+  font-size: 24px;
+  color: var(--gray);
+  cursor: pointer;
+  text-decoration: none;
+  border-top: 1px solid var(--gray);
+}
+
+.link:hover {
+  background-color: var(--blue);
+}
+
+#sidebar-a {
+  border-top-style: none;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
   align-items: center;
+
+  background-color: var(--transparent);
+}
+
+footer p {
+  font-size: 14px;
+}
+
+.content {
+  display: flex;
+  grid-column: 2 / -1;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 50px 0;
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 4fr repeat(5, 3fr);
+  grid-gap: 3px;
+  width: 300px;
+  height: 430px;
+}
+
+.calc-display {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 5px;
+
+  background-color: var(--dark-blue);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.calc-display-main {
+  font-size: 34px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.calc-display-secondary {
+  height: 25px;
+  font-size: 22px;
+  color: rgb(150, 150, 150);
+}
+
+.calc-button {
+  background-color: var(--light-blue);
+  border-style: none;
+}
+
+.calc-button:hover {
+  background-color: var(--gray);
+}
+
+.span2 {
+  grid-column: span 2;
+}
+
+.calc-history {
+  margin-left: 3px;
+  padding: 10px 15px;
+  height: 410px;
+  max-width: 300px;
+  overflow-y: scroll;
+
+  color: white;
+  background-color: var(--dark-blue);
+}
+
+.calc-history-top > h3 {
+  width: 200px;
+  letter-spacing: .05em;
+}
+
+.calc-history-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.calc-history-clear {
+  cursor: pointer;
+}
+
+.calc-history-content {
+  min-height: 50%;
+  width: 100%;
+
+  background-color: var(--light-blue);
+}
+
+.calc-history-noContent {
+  margin: 0 15px;
+  padding-top: 10px;
+  font-size: 20px;
+  color: var(--dark-blue);
+}
+
+.clac-history-calculation {
+  margin: 0 10px;
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  border-bottom: var(--dark-blue) solid 2px;
+}
+
+.clac-history-calculation > p {
+  font-size: 20px;
+  color: var(--dark-blue);
+}
+
+.clac-history-2row {
+  font-weight: bold;
+}
+
+.calc-historyBtn {
+  margin-left: 3px;
+  height: 50px;
+  width: 40px;
+
+  background-color: var(--light-blue);
+  color: var(--dark-blue);
+  border-style: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.calc-historyBtn:hover {
+  background-color: var(--gray);
+}
+
+.home-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  height: fit-content;
+  align-items: center;
+  justify-items: center;
+}
+
+.card-container {
+  width: 250px;
+  height: fit-content;
+  padding: 5px;
+
+  border-radius: 5px;
+  background-color: var(--dark-blue);
+}
+
+.card-header {
+  color: var(--white);
+}
+
+.card-image {
+  background-color: greenyellow;
+  width: 100%;
+}
+
+.card-link {
+  padding: 2px 5px;
+
+  border: var(--button-secondary) 2px solid;
+  border-radius: 8px;
+  color: var(--button-secondary);
+  background-color: var(--button-primary);
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  background-color: var(--button-secondary);
+  color: var(--button-primary);
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+  max-width: 80%;
+
+  border-radius: 3px;
+  background-color: var(--dark-blue);
+}
+
+.about-container h2 {
+  padding: 15px 5px;
+
+  color: var(--white);
+}
+
+.about-container p {
+  padding: 5px 10px;
+
+  font-size: 26px;
+  color: var(--gray);
+}
+
+.lottery-container {
+  display: grid;
+  grid-template-columns: 10fr 6fr;
+  grid-template-rows: repeat(7, auto);
+  grid-auto-flow: dense;
+  height: fit-content;
+  margin: 0 30px;
+  padding: 10px;
+
+  font-weight: 600;
+  background-color: var(--white);
+}
+
+.lottery-header {
+  font-size: 48px;
+  color: var(--white);
+}
+
+.lottery-header-container {
+  display: flex;
+  height: auto;
+  grid-column: 1 / -1;
+  margin-bottom: 10px;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+
+  background-color: var(--lottery-red);
+}
+
+.lottery-row {
+  grid-column: 1;
+
+  font-weight: inherit;
+  color: var(--lottery-red);
+}
+
+.lottery-input {
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+
+  color: var(--lottery-red);
+  text-align: center;
+  border: solid #a9a9a9 2px;
+  border-radius: 5px;
+}
+
+.lottery-row-header {
+  /* font-family: Dela Gorhic One; */
+  font-size: 32px;
+}
+
+.lottery-result {
+  padding: 0 10px;
+
+  color: var(--lottery-red);
+  border-left: solid var(--lottery-red) 20px;
+  border-right: solid var(--lottery-red) 20px;
+}
+
+.lottery-result p {
+  font-size: 20px;
+}
+
+.lottery-result-border {
+
+  border-bottom: solid var(--lottery-red) 5px;
+}
+
+.lottery-lastrow {
+  margin-top: 5px;
+  padding-top: 5px;
+
+  border-top: solid var(--lottery-red) 5px;
+}
+
+.lottery-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lottery-buttons button {
+  padding: 2px 10px;
+  border: none;
+  background-color: var(--lottery-red);
+  color: var(--white);
+}
+
+.lottery-buttons button:hover {
+  background-color: var(--lottery-red-hover);
+}
+
+.lottery-win-numbers {
+  padding: 2px 10px;
+  margin-top: 5px;
+  grid-column: span 2;
+
+  cursor: pointer;
+  border: none;
+  background-color: var(--lottery-red);
+  color: var(--white);
+}
+
+.lottery-win-numbers:hover {
+  background-color: var(--lottery-red-hover);
+}
+
+.lottery-win {
+  padding-left: 20px;
+
+  text-decoration: underline;
+  color: var(--lottery-red);
 }
