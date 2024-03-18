@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/react-apps/static/css/main.1212d951.css",
-    "main.js": "/react-apps/static/js/main.cda1f1b8.js",
+    "main.js": "/react-apps/static/js/main.e6629059.js",
     "static/js/453.36d98f97.chunk.js": "/react-apps/static/js/453.36d98f97.chunk.js",
     "static/media/task-manager.png": "/react-apps/static/media/task-manager.cc755d39232c05e8f41e.png",
     "static/media/lottery.png": "/react-apps/static/media/lottery.c11fa1bb80a101cf6106.png",
     "static/media/placeholder.png": "/react-apps/static/media/placeholder.0d93c1b161b7ee82b385.png",
     "index.html": "/react-apps/index.html",
     "main.1212d951.css.map": "/react-apps/static/css/main.1212d951.css.map",
-    "main.cda1f1b8.js.map": "/react-apps/static/js/main.cda1f1b8.js.map",
+    "main.e6629059.js.map": "/react-apps/static/js/main.e6629059.js.map",
     "453.36d98f97.chunk.js.map": "/react-apps/static/js/453.36d98f97.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1212d951.css",
-    "static/js/main.cda1f1b8.js"
+    "static/js/main.e6629059.js"
   ]
 }
