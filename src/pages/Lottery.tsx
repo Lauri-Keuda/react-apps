@@ -1,12 +1,13 @@
-import LotteryRow from "./LotteryRow";
-import LotteryResult from "./LotteryResult";
-import { useEffect, useState } from "react";
+import LotteryRow from "../components/LotteryRow";
+import LotteryResult from "../components/LotteryResult";
+import { ChangeEvent, useEffect, useState } from "react";
+import { ResultType } from "../types";
 
 const Lottery = () => {
   const emptyRow = [0, 0, 0, 0, 0, 0, 0];
   const [winNumbers, setWinNumbers] = useState([-1, -1, -1, -1, -1, -1, -1, -1])
   const [userRows, setUserRows] = useState([emptyRow, emptyRow, emptyRow, emptyRow, emptyRow, emptyRow, emptyRow])
-  const emptyResult = {
+  const emptyResult: ResultType = {
     numbers: emptyRow,
     specialNumber: false,
     winAmount: 0,
@@ -17,7 +18,7 @@ const Lottery = () => {
   const [showWinNumbers, setShowWinNumbers] = useState(true)
 
   useEffect(() => {
-    let numbers = [];
+    let numbers: number[] = [];
     for(let i = 0; i < 8; i++) {// arvotaan luku 8 kertaa
       let r = Math.floor((Math.random() * 40) + 1); //satunnainen luku: pienin 1, suurin 40
 
@@ -37,7 +38,7 @@ const Lottery = () => {
   },[results])
 
   function newNumbers() {
-    let numbers = [];
+    let numbers: number[] = [];
     for(let i = 0; i < 8; i++) {// arvotaan luku 8 kertaa
       let r = Math.floor((Math.random() * 40) + 1); //satunnainen luku: pienin 1, suurin 40
 
@@ -53,15 +54,15 @@ const Lottery = () => {
     submitRows();
   }
 
-  function setNum(e, index, rowID) {
+  function setNum(e: ChangeEvent<HTMLInputElement>, index: number, rowID: number) {
 
-    setUserRows(userRows.map((item, i) => {
+    setUserRows(userRows.map((item: number[], i: number) => {
       if(i === rowID){
-        return userRows[rowID].map((item, i) => {
+        return userRows[rowID].map((item: number, i: number) => {
           if(i === index) {
             return(parseInt(e.target.value))
           } else {
-            return parseInt(item) //????
+            return item
           }
         })
       } else {
@@ -72,7 +73,7 @@ const Lottery = () => {
     //console.log(userRows)
   }
 
-  function checkRow(row, index) {
+  function checkRow(row: number[], index: number) {
     let numsRight = 0;
     let specialNum = false;
     let winAmount = 0;

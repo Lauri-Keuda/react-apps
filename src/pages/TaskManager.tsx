@@ -1,35 +1,36 @@
 import { useState } from "react"
-import NewTask from "./NewTask"
-import Tasks from "./Tasks"
+import NewTask from "../components/NewTask"
+import Tasks from "../components/Tasks"
+import { TaskType } from "../types"
 
 const TaskManager = () => {
-  const [ tasks, setTasks ] = useState([
+  const [ tasks, setTasks ] = useState<TaskType[]>([
     {
-      id: "b",
+      id: 0,
       name: "Lounas",
       description: "Syö lounas oikeaan aikaan",
       reminder: true
     },
     {
-      id: "a",
+      id: 1,
       name: "Otsikko",
       description: "Lisätietoja tehtävästä",
       reminder: false
     },
     {
-      id: "c",
+      id: 2,
       name: "Käy kaupassa",
       description: "Käy kaupassa tekemässä ostokset",
       reminder: false
     },
     {
-      id: "d",
+      id: 3,
       name: "Do this task",
       description: "This is important task! Dont forget to do this!",
       reminder: true
     },
     {
-      id: "e",
+      id: 4,
       name: "Add more tasks here",
       description: "Add more example tasks here",
       reminder: false
@@ -37,14 +38,14 @@ const TaskManager = () => {
   ])
 
   //delete task
-  const deleteTask = (id) => {
+  const deleteTask = (id: number) => {
     setTasks(
       tasks.filter((task) => task.id !== id)
     )
   }
 
   //toggle reminder
-  const toggleReminder = (id) => {
+  const toggleReminder = (id: number) => {
     setTasks(
       tasks.map((task) => {
         if(task.id === id){
@@ -57,28 +58,28 @@ const TaskManager = () => {
   }
 
   //add task
-  const addTask = (task) => {
-    const id = Math.floor(Math.random() * 10000) + 1
-    const newTask = { id, ...task }
+  const addTask = (task: TaskType) => {
+    const newId: number = Math.floor(Math.random() * 10000) + 1
+    const newTask = { newId, ...task }
     setTasks([...tasks, newTask])
   }
 
   return (
     <>
-      <NewTask onAdd={addTask}/>
-      <div className="tasks-container">
-        {tasks.length > 0 ? (
-          <Tasks
-          tasks={tasks}
-          onDoubleClick={toggleReminder}
-          onDelete={deleteTask}
-          />
+    <div className="tasks-container">
+      {tasks.length > 0 ? (
+        <Tasks
+        tasks={tasks}
+        onDoubleClick={toggleReminder}
+        onDelete={deleteTask}
+        />
         ) : (
           <div className="no-tasks">
-            <h4>No tasks to show</h4>
-          </div>
-        )}
-      </div>
+          <h4>No tasks to show</h4>
+        </div>
+      )}
+    </div>
+    <NewTask onAdd={addTask}/>
     </>
   )
 }

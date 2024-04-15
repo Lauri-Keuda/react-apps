@@ -1,6 +1,7 @@
 import { FaTrashCan } from "react-icons/fa6";
+import { historyItemType } from "../types";
 
-const History = ({ history, clearHistory }) => {
+const History = ({ history, clearHistory }: {history: historyItemType[], clearHistory: Function}) => {
 
   const content = history.map(item => {
     return (
@@ -17,7 +18,9 @@ const History = ({ history, clearHistory }) => {
     <div className="calc-history">
       <div className="calc-history-top">
         <h3>History</h3>
-        <FaTrashCan className="calc-history-clear" onClick={clearHistory}/>
+        <div className="calc-history-clear" onClick={() => clearHistory()}>
+          <FaTrashCan/>
+        </div>
       </div>
       <div className="calc-history-content">
         {history.length !== 0 ? content : noContent}

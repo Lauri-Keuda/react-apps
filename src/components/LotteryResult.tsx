@@ -1,4 +1,6 @@
-const LotteryResult = ({ result }) => {
+import { ResultType } from "../types"
+
+const LotteryResult = ({ result }: {result: ResultType}) => {
   return (
     <div className="lottery-result">
       {/* <p>Luvut: {`${result.numbers[0]} ${result.numbers[1]} ${result.numbers[2]} ${result.numbers[3]} ${result.numbers[4]} ${result.numbers[5]} ${result.numbers[6]}`}</p> */}

@@ -1,4 +1,4 @@
-const LotteryRow = ({ rowID, numChange }) => {
+const LotteryRow = ({ rowID, numChange }: {rowID: number, numChange: Function}) => {
 
   return (
     <div className="lottery-row">

@@ -1,6 +1,7 @@
 import Task from "./Task"
+import { TaskType } from "../types"
 
-const Tasks = ({ tasks, onDoubleClick, onDelete }) => {
+const Tasks = ({ tasks, onDoubleClick, onDelete }: {tasks: TaskType[], onDoubleClick: Function, onDelete: Function}) => {
   return (
     <>
       {tasks.map((task) => {

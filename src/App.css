@@ -68,6 +68,8 @@ footer p {
   padding: 50px 0;
 }
 
+/* Calculator starts */
+
 .calc-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -189,22 +191,31 @@ footer p {
   background-color: var(--gray);
 }
 
+/* Calculator ends */
+/* Home starts */
+
 .home-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-  height: fit-content;
-  align-items: center;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-container {
-  width: 250px;
+  display: grid;
+  grid-template-columns: 6fr 5fr;
+  grid-template-rows: auto auto auto;
+  grid-auto-flow: dense;
+  width: 550px;
   height: fit-content;
-  padding: 5px;
+  padding: 10px;
+  margin: 10px 0;
 
-  border-radius: 5px;
+  color: var(--light-blue);
+  border-radius: 10px;
   background-color: var(--dark-blue);
+}
+
+.card-container p {
+  margin-right: 5px;
 }
 
 .card-header {
@@ -212,12 +223,19 @@ footer p {
 }
 
 .card-image {
-  background-color: greenyellow;
+  grid-column: 2;
+  grid-row: 1 / -1;
   width: 100%;
+  height: 160px;
+
+  background-color: #aaaaaa;
+  border-radius: 8px;
 }
 
 .card-link {
   padding: 2px 5px;
+  width: fit-content;
+  height: fit-content;
 
   border: var(--button-secondary) 2px solid;
   border-radius: 8px;
@@ -231,6 +249,9 @@ footer p {
   background-color: var(--button-secondary);
   color: var(--button-primary);
 }
+
+/* Home ends */
+/* About starts */
 
 .about-container {
   display: flex;
@@ -255,6 +276,9 @@ footer p {
   font-size: 26px;
   color: var(--gray);
 }
+
+/* About ends */
+/* Lottery starts */
 
 .lottery-container {
   display: grid;
@@ -369,4 +393,194 @@ footer p {
 
   text-decoration: underline;
   color: var(--lottery-red);
+}
+
+/* Lottery ends */
+/* add task starts */
+
+.newTask-container {
+  display: inline-block;
+  width: 280px;
+  margin-left: 5px;
+  height: fit-content;
+
+  background-color: var(--dark-blue);
+  border: 3px solid var(--blue-border);
+  border-radius: 10px;
+  color: var(--gray);
+}
+
+.newTask-header {
+  height: 40px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--white);
+}
+
+.newTask-body li {
+  list-style: none;
+}
+
+.add-task {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin: 0px 15px 15px 15px;
+  font-size: 18px;
+}
+
+.add-task div {
+  margin-bottom: 10px;
+  align-items: end;
+}
+
+.form-checkbox {
+  display: flex;
+  justify-content: space-between;
+}
+
+input[type="checkbox"] {
+  align-self: center;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+
+  accent-color: var(--dark-blue);
+}
+
+input[type="checkbox"]:checked::before {
+  border-style: solid;
+}
+
+input[type="text"] {
+  width: 100%;
+
+  cursor: text;
+  border-radius: 2px;
+  border-style: solid;
+  border-color: var(--blue-border);
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+
+.submit {
+  height: 20px;
+
+  cursor: pointer;
+  background-color: var(--button-primary);
+  color: var(--button-secondary);
+  border-style: none;
+  border-radius: 3px;
+  font-size: 18px;
+}
+
+.submit:hover {
+  background-color: var(--button-secondary);
+  color: var(--button-primary);
+}
+
+/* add task ends*/
+/* Task manager starts */
+
+.tasks-container {
+  width: 500px;
+  max-height: 70vh;
+
+  background-color: var(--blue);
+  border: 2px var(--blue-border) solid;
+  border-radius: 10px;
+  overflow-y: auto;
+  scrollbar-color: var(--blue-border);
+}
+
+.task-container {
+  margin: 10px 20px;
+  border-radius: 2px;
+
+  background-color: var(--gray);
+  color: var(--white);
+}
+
+.task-container h3 {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task-container p {
+  padding: 0 5px;
+  color: var(--dark-blue);
+}
+
+.task-delete,
+.task-delete svg {
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+
+  border: none;
+  background-color: #00000000;
+  color: var(--white);
+}
+
+.no-tasks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+
+  background-color: dimgray;
+  border-radius: 10px;
+  color: var(--white);
+}
+
+.reminder {
+  border-left: 5px greenyellow solid;
+}
+
+.timeNow-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  width: fit-content;
+  height: fit-content;
+  padding: 10px;
+
+  border-radius: 5px;
+  color: var(--gray);
+  background-color: var(--blue);
+}
+
+.timeNow-header {
+  color: var(--white);
+}
+
+.timeNow-city p {
+  font-size: 22px;
+}
+
+#timeNow-dropdown,
+#timeNow-dropdown option {
+  font-size: 22px;
+  background-color: var(--light-blue);
+}
+
+.timeNow-time {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  align-self: center;
+  margin: 0 20px;
+  padding: 5px 10px;
+
+  font-size: 44px;
+
+  border-radius: 10px;
+  background-color: var(--light-blue);
+  color: var(--dark-blue);
 }

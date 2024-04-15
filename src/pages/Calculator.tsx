@@ -1,19 +1,20 @@
 import { useState } from 'react';
-import DigitButton from './DigitButton';
-import OperationButton from './OperationButton';
-import History from './History';
-import ToggleHistory from './ToggleHistory';
+import DigitButton from '../components/DigitButton';
+import OperationButton from '../components/OperationButton';
+import History from '../components/History';
+import ToggleHistory from '../components/ToggleHistory';
+import { historyItemType } from '../types';
 
 const Calculator = () => {
 
   const [mainNum, setMainNum] = useState("0")
   const [secondNum, setSecondNum] = useState("")
   const [operationSign, setOperationSign] = useState("")
-  const [history, setHistory] = useState([])
+  const [history, setHistory] = useState<historyItemType[]>([])
   const [calculation, setCalculation] = useState("")
   const [showHistory, setShowHistory] = useState(false)
 
-  function insertNum(number){
+  function insertNum(number: string){
 
     if(mainNum === "0" || mainNum === "-0"){
       setMainNum(number.toString())
@@ -24,13 +25,13 @@ const Calculator = () => {
     setMainNum(number)
   }
 
-  function addDecimal(dot) {
+  function addDecimal(dot: string) {
     if(mainNum.includes(".")){return}
 
     setMainNum(mainNum + dot)
   }
 
-  function calculate(sign) {
+  function calculate(sign: string): number | string {
     switch(sign) {
       case "+":
         return parseFloat(secondNum) + parseFloat(mainNum)
@@ -41,11 +42,11 @@ const Calculator = () => {
       case "÷":
         return parseFloat(secondNum) / parseFloat(mainNum)
       default:
-        break;
+        return ""
     }
   }
 
-  function operate(sign){
+  function operate(sign: string){
     switch(sign){
       case "C":
         setMainNum("0")
@@ -142,7 +143,7 @@ const Calculator = () => {
       <OperationButton value="=" operate={operate}/>
     </div>
     {showHistory ? <History history={history} clearHistory={clearHistory}/> : ""}
-    <ToggleHistory showHistory={showHistory} toggleHistory={toggleHistory}/>
+    <ToggleHistory toggleHistory={toggleHistory}/>
     </>
   )
 }
